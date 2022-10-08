@@ -1,5 +1,4 @@
 # Pink-Flag
 Projeto Integrador
-![preview](
-)
+![preview]()
 [🔗 Clique aqui para acessar]()
