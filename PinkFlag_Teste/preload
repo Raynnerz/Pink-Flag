@@ -1,0 +1,5 @@
+
+        <link rel="preload" href="./assets/css/inicio.css" as="style">
+        <link rel="preload" href="./assets/css/leiaute.css" as="style">
+        <link rel="preload" href="./assets/css/componentes_teste.css" as="style">
+        <link rel="preload" href="./assets/js/script.js" as="script">
