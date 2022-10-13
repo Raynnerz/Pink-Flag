@@ -1,4 +1,4 @@
 # Pink-Flag
-Projeto Integrador
-![preview](./github-PinkFlg/preview.png)
+Projeto Integrador<br><br>
+![preview](./github-PinkFlag/preview.png)<br><br>
 [🔗 Clique aqui para acessar](https://github.com/Raynnerz/)
