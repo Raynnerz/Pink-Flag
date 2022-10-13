@@ -1,0 +1,16 @@
+.leiaute-cabecalho {
+    display: inline;
+}
+.menu {
+    list-style: none;
+    text-decoration: none;
+    color: #333;
+}
+.redes {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    width: 15%;
+    margin-top: -2.5em;
+    list-style: none;
+}

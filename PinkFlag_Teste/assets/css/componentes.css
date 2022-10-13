@@ -1,0 +1,91 @@
+
+.menu {
+    list-style: none;
+}
+.menu li {
+    display: inline;
+}
+.menu li a {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: transform .3s;
+    padding: 5px 10px;
+    display: inline-block;
+}
+.menu li a:hover {
+    color: #FF30AF;
+    transform: scale(1.1)
+}
+.menu-extra {
+    list-style: none;
+    float: right;
+    padding: 5px;
+    margin-right: 5px;
+}
+.menu-extra li {
+    float: left;
+}
+.menu-extra li a {
+    margin: auto;
+    color: #333;
+    text-decoration: none;
+    transition: transform .3s;
+    padding: 5px 10px;
+    display: inline-block;
+}
+.menu-extra li a:hover {
+    color: #FF30AF;
+    transform: scale(1.1)
+}
+.redes {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    width: 15%;
+    margin-top: -2.5em;
+    list-style: none;
+}
+.redes li i {
+    color: #333;
+    text-decoration: none;
+    font-size: 100%;
+}
+.redes li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 10px;
+    padding: 3px;
+    transition: transform .3s;
+}
+.redes li a:hover {
+    transform: scale(1.1)
+}
+/* animation */
+.menu {
+    animation: fromTop .7s .2s backwards;
+}
+.redes {
+    animation: fromRight .7s backwards;
+}
+@keyframes fromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fromRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
