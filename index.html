@@ -15,23 +15,24 @@
             crossorigin="anonymous">
         <link rel="stylesheet" href="./assets/css/inicio.css">
         <link rel="stylesheet" href="./assets/css/leiaute.css">
-        <link rel="stylesheet" href="./assets/css/componentes_teste.css">
+        <link rel="stylesheet" href="./assets/css/componentes.css">
     </head>
-
-    <body>
-        <header class="leiaute-cabecalho">
-            <nav class="container">
-                <ul class="menu row align-items-center">
-                    <section class="menu__logo col-sm-2 border">
+    <body onload="obterNoticias()">
+        <header>
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <ul class="logo">
                         <li>
                             <a href="index.html"><img
                                 src="./assets/images/post PINK FLAG_edited.png"
                                 alt="Logo Pink Flag"
-                                width="65px"></a>
+                                width="120px"></a>
                         </li>
-                    </section>
-                    <section class="menu__principal col-lg-6 border">
-                        <li >
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="menu">
+                        <li>
                             <a href="">Donas do Paddock</a>
                         </li>
                         <li >
@@ -40,28 +41,24 @@
                         <li >
                             <a href="">Girls on Board</a>
                         </li>
-                    </section>
-                    <section class="menu__secundario col-lg-4 border">
+                    </ul>
+                </div>
+                <div class="dropdown col-md-3">
+                    <ul class="menu__dropdown">
                         <li>
-                            <ul class="menu-extra">
-                                <li>
-                                    <a href="">Quem somos</a>
-                                </li>
-                                <li>
-                                    <a href="">Pink Brain</a>
-                                </li>
-                                <li>
-                                    <a href="">Marias Gasolinas</a>
-                                </li>
-                                <li>
-                                    <a href="">Money is Queen</a>
-                                </li>
-                            </ul>
+                            <button class="dropbtn">More</button>
+                            <div class="dropdown-content">
+                            <a href="#">Quem somos</a>
+                            <a href="#">Pink Brain</a>
+                            <a href="#">Marias Gasolinas</a>
+                            <a href="#">Money is Queen</a>
+                            </div>
                         </li>
-                    </section>
-                </ul>
-            </nav>
+                    </ul>
+                </div>
+            </div>
         </header>
+
         <aside>
             <ul class="redes">
                 <li>
@@ -82,13 +79,79 @@
                 <li>
                     <a href="https://www.apple.com/apple-music/">
                         <i class="fa-brands fa-itunes"></i>
-                    </li>
-                </ul>
-            </aside>
-            <script
-                src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-                crossorigin="anonymous"></script>
-        </body>
+                    </a>
+                </li>
+            </ul>
+        </aside>
 
-    </html>
+        <div class="container mt-5">
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="d-none alert alert-danger alert-dismissible fade" role="alert">
+                    Preencha todos os campos.
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="tituloInput"
+                        placeholder="Título do filme">
+                    <label for="tituloInput">Título da Notícia</label>
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-4">
+                <div class="form-floating mb-3">
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="sinopseInput"
+                        placeholder="Sinopse do filme">
+                    <label for="sinopseInput">Sinopse da Notícia</label>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <button class="btn btn-outline-primary w-100" onclick="cadastrarNoticia()">Cadastrar</button>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <table class="table table-striped table-hover text-center noticias">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<script src="./assets/js/menu.js"></script>
+
+<script src="./assets/js/script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
