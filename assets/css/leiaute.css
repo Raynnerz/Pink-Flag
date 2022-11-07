@@ -1,18 +1,20 @@
 .logo{
     list-style: none;
-    text-decoration: none;
     color: #333;
     text-align: center;
+}
+.leiaute-cabecalho {
+    font-family: 'Poppins Extra Light';
+    font-size: 15px;
+    font-weight: 200;
 }
 .menu {
     list-style: none;
-    text-decoration: none;
     color: #333;
     text-align: center;
 }
-.menu__dropdown {
+.menu-dropdown {
     list-style: none;
-    text-decoration: none;
     color: #333;
 }
 .redes {
@@ -23,4 +25,27 @@
     margin-top: -2.5em;
     list-style: none;
 }
-
+.rodape {
+    background-color: #000000;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-weight: 600;
+}
+.title__footer{
+    font-size: 40px;
+    color: #FF66CA;
+    font-family: 'Anton';
+}
+.menu__footer {
+    list-style: none;
+    color: #ffffff;
+    text-align: center;
+}
+.menu-dropup__footer {
+    list-style: none;
+    color: #ffffff;
+}
+.redes__footer {
+    list-style: none;
+    display: inline;
+}
