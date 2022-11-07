@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pink Flag</title>
 
         <script src="https://kit.fontawesome.com/b66b25714c.js" crossorigin="anonymous"></script>
+        <script src="./assets/js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+            crossorigin="anonymous"></script>
 
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
@@ -16,9 +21,22 @@
         <link rel="stylesheet" href="./assets/css/inicio.css">
         <link rel="stylesheet" href="./assets/css/leiaute.css">
         <link rel="stylesheet" href="./assets/css/componentes.css">
+
+        <link
+            href='https://fonts.googleapis.com/css?family=Anton'
+            rel='stylesheet'
+            type='text/css'>
+        <link
+            href='https://fonts.googleapis.com/css?family=Poppins'
+            rel='stylesheet'
+            type='text/css'>
+        <link
+            href='https://fonts.googleapis.com/css?family=Questrial'
+            rel='stylesheet'
+            type='text/css'>
     </head>
     <body onload="obterNoticias()">
-        <header>
+        <header class="leiaute-cabecalho">
             <div class="row align-items-center">
                 <div class="col-md-3">
                     <ul class="logo">
@@ -44,41 +62,44 @@
                     </ul>
                 </div>
                 <div class="dropdown col-md-3">
-                    <ul class="menu__dropdown">
+                    <ul class="menu-dropdown">
                         <li>
                             <button class="dropbtn">More</button>
                             <div class="dropdown-content">
-                            <a href="#">Quem somos</a>
-                            <a href="#">Pink Brain</a>
-                            <a href="#">Marias Gasolinas</a>
-                            <a href="#">Money is Queen</a>
+                                <a href="#">Quem somos</a>
+                                <a href="#">Pink Brain</a>
+                                <a href="#">Marias Gasolinas</a>
+                                <a href="#">Money is Queen</a>
+                                <!--<a href="acessibilidades.html">Acessibilidades</a>-->
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
         </header>
-
         <aside>
             <ul class="redes">
                 <li>
-                    <a href="https://www.facebook.com/">
+                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
                         <i class="fa-brands fa-facebook"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="https://twitter.com/">
+                    <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
                         <i class="fa-brands fa-twitter"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="https://open.spotify.com/">
+                    <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
                         <i class="fa-brands fa-spotify"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.apple.com/apple-music/">
-                        <i class="fa-brands fa-itunes"></i>
+                    <a
+                        href="https://www.apple.com/apple-music/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        <i style="width:28px;height:28px" class="fa-brands fa-itunes"></i>
                     </a>
                 </li>
             </ul>
@@ -86,72 +107,139 @@
 
         <div class="container mt-5">
 
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="d-none alert alert-danger alert-dismissible fade" role="alert">
-                    Preencha todos os campos.
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="alert"
-                        aria-label="Close"></button>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="d-none alert alert-danger alert-dismissible fade" role="alert">
+                        Preencha todos os campos.
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="alert"
+                            aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-4">
+                    <div class="form-floating mb-3">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="tituloInput"
+                            placeholder="Título do filme">
+                        <label for="tituloInput">Título da Notícia</label>
+                    </div>
+                </div>
+                <div class="col-md-8 col-lg-4">
+                    <div class="form-floating mb-3">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="sinopseInput"
+                            placeholder="Sinopse do filme">
+                        <label for="sinopseInput">Sinopse da Notícia</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <button class="btn btn-outline-primary w-100" onclick="cadastrarNoticia()">Cadastrar</button>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <table class="table table-striped table-hover text-center noticias">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
                 </div>
             </div>
         </div>
 
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-4">
-                <div class="form-floating mb-3">
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="tituloInput"
-                        placeholder="Título do filme">
-                    <label for="tituloInput">Título da Notícia</label>
+        <footer class="rodape">
+            <img
+                src="./assets/images/flag_rodape.png"
+                alt="Bandeira do rodape"
+                id="banner__rodape">
+            <div class="container">
+                <h2 class="title__footer">
+                    <em>PINK FLAG</em>
+                </h2>
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <ul class="menu__footer">
+                            <li>
+                                <a href="">
+                                    <em>Donas do Paddock</em>
+                                </a>
+                            </li>
+                            <li >
+                                <a href="">
+                                    <em>Food on The Track</em>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dropup__footer col-md-3">
+                        <ul class="menu-dropup__footer">
+                            <li>
+                                <button class="dropbtn__footer">
+                                    <em>More</em>
+                                </button>
+                                <div class="dropup-content__footer">
+                                    <a href="#">Quem somos</a>
+                                    <a href="#">Pink Brain</a>
+                                    <a href="#">Marias Gasolinas</a>
+                                    <a href="#">Money is Queen</a>
+                                    <!--<a href="acessibilidades.html">Acessibilidades</a>-->
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <form id="email"></form>
+                        <label for="email" id="email__label">
+                            <p style="color:#ffffff;display:inline-block;font-family:'Poppins Extra Light;font-size:15px;">Email</p>
+                            <p style="color:#FF00A7;display:inline-block;">*</p>
+                        </label>
+                        <input
+                            type="email"
+                            class="emailInput"
+                            id="emailAddress"
+                            placeholder="Insira seu email aqui*">
+                        <button type="submit" class="btn-email" form="email">Enviar</button>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-8 col-lg-4">
-                <div class="form-floating mb-3">
-                    <input
-                        type="text"
-                        class="form-control"
-                        id="sinopseInput"
-                        placeholder="Sinopse do filme">
-                    <label for="sinopseInput">Sinopse da Notícia</label>
+                <div class="row">
+                    <ul class="redes__footer">
+                        <li>
+                            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-brands fa-spotify"></i>
+                            </a>
+                            <a
+                                href="https://www.apple.com/apple-music/"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                <i class="fa-brands fa-itunes"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
+                <p id="autorais">&copy 2022 por PINK FLAG. Todos os direitos reservados.</p>
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <button class="btn btn-outline-primary w-100" onclick="cadastrarNoticia()">Cadastrar</button>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <table class="table table-striped table-hover text-center noticias">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-<script src="./assets/js/menu.js"></script>
-
-<script src="./assets/js/script.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-    crossorigin="anonymous"></script>
-</body>
-
+        </footer>
+    </body>
 </html>
