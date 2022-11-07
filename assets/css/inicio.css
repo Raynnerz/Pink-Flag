@@ -1,5 +1,11 @@
 *{margin: 0; padding: 0; box-sizing: border-box;}
 body {
-    font-family: 'Monteserrat';
     background-color: #f2f1ec;
 }
+#autorais{
+    color:white;
+    font-family:'Poppins Extra Light';
+    font-weight: 200;
+    font-size:14px;
+}
+
